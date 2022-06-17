@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float speed = 20f;
+    //Variables.
+
+    [SerializeField] float speed = 20.0f;
+    [SerializeField] float turnSpeed = 100.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,7 +17,15 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // we will move our vehicle here
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        // these variables are created in the update function so these can not be used in any other functions.
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertial = Input.GetAxis("Vertical");
+
+        // here we are changing the position and rotation parameters of our gameobject.
+        //both of these lines genarally say vector3 in the directions that they want to affect multiply it with
+        //Time.Deltatime to make it framerate independent and mutiply it with a variable that affects the rate ot whic these 
+        //changes take place and multiply it with the axis value of the input.
+        transform.Translate(Vector3.forward * Time.deltaTime * speed * vertial);
+        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontal);
     }
 }
