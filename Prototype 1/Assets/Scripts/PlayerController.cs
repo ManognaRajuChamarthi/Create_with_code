@@ -26,6 +26,11 @@ public class PlayerController : MonoBehaviour
         //Time.Deltatime to make it framerate independent and mutiply it with a variable that affects the rate ot whic these 
         //changes take place and multiply it with the axis value of the input.
         transform.Translate(Vector3.forward * Time.deltaTime * speed * vertial);
-        transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontal);
+        // we are using an if statement because we want to impliment a condition where we dont want our vehical to rotate if its not moving 
+        // If we dont use this condition the vehical will rotate in the same place if we just activate the horizontal axis.
+        if (vertial!=0f){
+            transform.Rotate(Vector3.up * Time.deltaTime * turnSpeed * horizontal);
+        }
+        
     }
 }
