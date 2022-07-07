@@ -17,5 +17,9 @@ public class moveforward : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        if (transform.position.z>17 || transform.position.z < -2)
+        {
+            Destroy(gameObject);
+        }
     }
 }
