@@ -18,7 +18,7 @@ public class spawnManager : MonoBehaviour
     void Update()
     {
         int index = Random.Range(0, animals.Length-1);
-        if (Input.GetKey(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             Instantiate(animals[index], new Vector3(Random.Range(-15,15), 0,19),animals[index].transform.rotation);
         }
