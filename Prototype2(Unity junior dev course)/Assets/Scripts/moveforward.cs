@@ -19,7 +19,11 @@ public class moveforward : MonoBehaviour
     void Update()
     {
         transform.Translate(Vector3.forward * Time.deltaTime * speed);
-        if (transform.position.z>upperBound || transform.position.z < lowerBound)
+        if (transform.position.z < lowerBound)
+        {
+            Debug.Log("gameOver!");
+            Destroy(gameObject);
+        }else if(transform.position.z > upperBound)
         {
             Destroy(gameObject);
         }
