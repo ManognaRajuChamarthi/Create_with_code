@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Cube : MonoBehaviour
 {
@@ -8,9 +9,9 @@ public class Cube : MonoBehaviour
     [Header("variables")]
     public MeshRenderer Renderer;
     private float alpha = 0.4f ;
-    [RangeAttribute(1f, 100f)]//using rangeattribute to have fun experiance in the inspector
-    public float rotationSpeed;
-    
+    public float rotationSpeed = 10;
+    //public Slider slider;
+
     void Start()
     {
         transform.position = new Vector3(3, 4, 1);
@@ -25,13 +26,20 @@ public class Cube : MonoBehaviour
     
     void Update()
     {
-        //made a variable to control the speed of spining
-        transform.Rotate(10.0f * Time.deltaTime * rotationSpeed, 0.0f, 0.0f);
+        
+        Rotate();
 
         if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
         }
+    }
+
+    public void Rotate()
+    {
+        
+        //made a variable to control the speed of spining
+        transform.Rotate(10.0f * Time.deltaTime * rotationSpeed, 0.0f, 0.0f);
     }
 
 
