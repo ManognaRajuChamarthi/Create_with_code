@@ -27,5 +27,12 @@ public class Cube : MonoBehaviour
     {
         //made a variable to control the speed of spining
         transform.Rotate(10.0f * Time.deltaTime * rotationSpeed, 0.0f, 0.0f);
+
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
+
+
 }
