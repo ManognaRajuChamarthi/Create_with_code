@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class Cube : MonoBehaviour
 {
+    //used attributes
+    [Header("variables")]
     public MeshRenderer Renderer;
+    private float alpha = 0.4f ;
+    [RangeAttribute(1f, 100f)]//using rangeattribute to have fun experiance in the inspector
+    public float rotationSpeed;
     
     void Start()
     {
         transform.position = new Vector3(3, 4, 1);
-        transform.localScale = Vector3.one * 1.3f;
-        
+        //changed local scale form 1.3 to 5
+        transform.localScale = Vector3.one * 5.0f;
+
         Material material = Renderer.material;
-        
-        material.color = new Color(0.5f, 1.0f, 0.3f, 0.4f);
+        //color changed to red and made alpha a variable to a variable instead of hardcoding
+        material.color = new Color(1.0f, 0f, 0f, alpha);
+
     }
     
     void Update()
     {
-        transform.Rotate(10.0f * Time.deltaTime, 0.0f, 0.0f);
+        //made a variable to control the speed of spining
+        transform.Rotate(10.0f * Time.deltaTime * rotationSpeed, 0.0f, 0.0f);
     }
 }
