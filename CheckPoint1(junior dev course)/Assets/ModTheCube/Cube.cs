@@ -10,7 +10,6 @@ public class Cube : MonoBehaviour
     public MeshRenderer Renderer;
     private float alpha = 0.4f ;
     public float rotationSpeed = 10;
-    //public Slider slider;
 
     void Start()
     {
