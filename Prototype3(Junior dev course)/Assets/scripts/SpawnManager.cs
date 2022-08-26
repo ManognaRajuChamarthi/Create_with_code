@@ -16,10 +16,14 @@ public class SpawnManager : MonoBehaviour
     //converting strings to variables
     private string Spawnfunction = "SpawnFunction";
 
+    //Game specific things
+    private PlayerScript playerScript;
+
     // Start is called before the first frame update
     void Start()
     {
         InvokeRepeating(Spawnfunction, startTime, timeDelay);
+        playerScript = GameObject.Find("Player").GetComponent<PlayerScript>();
     }
 
     // Update is called once per frame
@@ -30,7 +34,11 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnFunction()
     {
-        Instantiate(objectToBeSpawned, spawnPosition, spawnRotation);
+        if (playerScript.gameOver == false)
+        {
+            Instantiate(objectToBeSpawned, spawnPosition, spawnRotation);
+        }
+            
     }
 
     // please note that this script doesn't provide a means to the destroy the instanciated objects.
