@@ -19,6 +19,10 @@ public class moveLeft : MonoBehaviour
         {
             transform.Translate(Vector3.left * movingSpeed * Time.deltaTime);
         }
+        if(transform.position.x <= -15f && gameObject.CompareTag("Obstacle"))
+        {
+            Destroy(gameObject);
+        }
     }
         
 }
